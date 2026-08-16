@@ -16,6 +16,7 @@
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --accent-neon: #34d399;
+            --whatsapp-green: #25D366;
         }
 
         * {
@@ -131,6 +132,13 @@
             margin: 0 auto 35px auto;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         .btn-main {
             background: var(--primary-gradient);
             color: #fff;
@@ -152,6 +160,28 @@
         .btn-main:hover {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.6);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(37, 211, 102, 0.6);
+            background: #20ba5a;
         }
 
         .container {
@@ -334,6 +364,101 @@
             box-shadow: 0 12px 25px -5px rgba(59, 130, 246, 0.6);
         }
 
+        /* حاسبة السعرات والوزن */
+        .calculator-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 28px;
+            padding: 40px;
+            max-width: 750px;
+            margin: 0 auto 60px auto;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.4);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .result-box {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--accent-neon);
+            border-radius: 18px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-box h3 {
+            color: var(--accent-neon);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .result-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 15px 20px;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent-neon);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* زر الواتساب العائم */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--whatsapp-green);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.7);
+        }
+
         footer {
             background: rgba(15, 23, 42, 0.9);
             border-top: 1px solid var(--card-border);
@@ -350,7 +475,8 @@
             header { flex-direction: column; gap: 15px; }
             nav a { margin: 0 10px; }
             .pricing-grid { grid-template-columns: 1fr; }
-            .calc-wrapper { padding: 30px 20px; }
+            .calc-wrapper, .calculator-card { padding: 30px 20px; }
+            .grid-2 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -360,6 +486,7 @@
         <div class="logo">Macro Fuel <span>⚡️</span></div>
         <nav>
             <a href="#plans">الباقات</a>
+            <a href="#calorie-calc">حاسبة السعرات</a>
             <a href="#subscribe">طلب اشتراك</a>
         </nav>
     </header>
@@ -368,9 +495,86 @@
         <div class="hero-badge">🌿 وجبات طازجة 100% في تبوك</div>
         <h1>Eat Clean. Stay Lean.</h1>
         <p>وجبات صحية طازجة يومياً، محسوبة الماكروز والسعرات الحرارية بالجرام لدعم أهدافك الرياضية والصحية.</p>
-        <a href="#subscribe" class="btn-main">
-            اشترك الآن أونلاين 📩
-        </a>
+        <div class="hero-buttons">
+            <a href="#subscribe" class="btn-main">
+                اشترك الآن أونلاين 📩
+            </a>
+            <a href="https://wa.me/966554191775?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D8%A7%D9%83%D8%B1%D9%88%20%D9%81%D9%8A%D9%88%D9%84%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA" target="_blank" class="btn-whatsapp">
+                تواصل عبر الواتساب 💬
+            </a>
+        </div>
+    </section>
+
+    <!-- حاسبة السعرات الحرارية والوزن -->
+    <section class="container" id="calorie-calc">
+        <h2 class="section-title">حاسبة الوزن والسعرات 📊</h2>
+        <p class="section-subtitle">احسب احتياجك اليومي من السعرات الحرارية لبدء خطتك الغذائية</p>
+
+        <div class="calculator-card">
+            <form id="calorieForm" onsubmit="calculateCalories(event)">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>الجنس:</label>
+                        <select id="gender" class="form-control" required>
+                            <option value="male">ذكر</option>
+                            <option value="female">أنثى</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>العمر (سنة):</label>
+                        <input type="number" id="age" class="form-control" placeholder="مثال: 25" required min="10" max="100">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>الوزن (كجم):</label>
+                        <input type="number" id="weight" class="form-control" placeholder="مثال: 75" required min="30" max="250">
+                    </div>
+
+                    <div class="form-group">
+                        <label>الطول (سم):</label>
+                        <input type="number" id="height" class="form-control" placeholder="مثال: 175" required min="100" max="230">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>مستوى النشاط البدني:</label>
+                    <select id="activity" class="form-control" required>
+                        <option value="1.2">خامل (قليل أو لا يمارس الرياضة)</option>
+                        <option value="1.375">نشاط خفيف (تمارين 1-3 أيام/أسبوعياً)</option>
+                        <option value="1.55">نشاط متوسط (تمارين 3-5 أيام/أسبوعياً)</option>
+                        <option value="1.725">نشاط عالٍ (تمارين 6-7 أيام/أسبوعياً)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>الهدف الصحي:</label>
+                    <select id="goal" class="form-control" required>
+                        <option value="lose">خسارة الوزن / تنشيف (-500 سعرة)</option>
+                        <option value="maintain">المحافظة على الوزن الحالي</option>
+                        <option value="gain">زيادة الوزن / تضخيم (+500 سعرة)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="calc-btn">احسب سعراتي الآن ⚡️</button>
+            </form>
+
+            <div id="resultBox" class="result-box">
+                <h3>احتياجك اليومي الموصى به:</h3>
+                <div class="result-stats">
+                    <div class="stat-item">
+                        <div id="targetCalories" class="stat-value">0</div>
+                        <div class="stat-label">سعرة حرارية/يومياً</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="bmrValue" class="stat-value">0</div>
+                        <div class="stat-label">معدل الحرق الأساسي (BMR)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="container" id="plans">
@@ -427,7 +631,6 @@
         <div class="calc-wrapper">
             <form action="https://formsubmit.cloud/f/4c0229e9-13e7-4e14-b7af-a698b30fb061/" method="POST">
                 
-                <!-- توجيه المستخدم لموقعك بعد الإرسال -->
                 <input type="hidden" name="_next" value="https://nawwah707.github.io/MACRO-FUEL-777/">
 
                 <div class="form-group">
@@ -465,9 +668,45 @@
         </div>
     </section>
 
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/966554191775?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D8%A7%D9%83%D8%B1%D9%88%20%D9%81%D9%8A%D9%88%D9%84%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%8BD%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A7%D8%AA" class="whatsapp-float" target="_blank" title="تواصل معنا عبر الواتساب">
+        💬
+    </a>
+
     <footer>
         <p>جميع الحقوق محفوظة © Macro Fuel 2026 ⚡️ | تبوك، المملكة العربية السعودية</p>
     </footer>
 
+    <script>
+        function calculateCalories(event) {
+            event.preventDefault();
+            
+            const gender = document.getElementById('gender').value;
+            const age = parseFloat(document.getElementById('age').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const activity = parseFloat(document.getElementById('activity').value);
+            const goal = document.getElementById('goal').value;
+
+            let bmr = (10 * weight) + (6.25 * height) - (5 * age);
+            if (gender === 'male') {
+                bmr += 5;
+            } else {
+                bmr -= 161;
+            }
+
+            let tdee = bmr * activity;
+
+            if (goal === 'lose') {
+                tdee -= 500;
+            } else if (goal === 'gain') {
+                tdee += 500;
+            }
+
+            document.getElementById('bmrValue').innerText = Math.round(bmr);
+            document.getElementById('targetCalories').innerText = Math.round(tdee);
+            document.getElementById('resultBox').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
