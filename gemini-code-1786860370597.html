@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macro Fuel ⚡️ | Eat Clean. Stay Lean.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --accent-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --vibrant-glow: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-neon: #34d399;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.12) 0px, transparent 50%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-right: 24px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-neon);
+            text-shadow: 0 0 12px rgba(52, 211, 153, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 100px 20px 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            filter: blur(140px);
+            opacity: 0.25;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--accent-neon);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 35px auto;
+        }
+
+        .btn-main {
+            background: var(--primary-gradient);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.6);
+        }
+
+        /* Container & Titles */
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--accent-neon);
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(16, 185, 129, 0.08) 100%);
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.25);
+        }
+
+        .badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gradient);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .plan-title {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--accent-neon);
+            margin-bottom: 25px;
+        }
+
+        .price span {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 35px;
+            text-align: right;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: var(--accent-neon);
+            font-weight: 900;
+            margin-left: 10px;
+            background: rgba(16, 185, 129, 0.15);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        /* Order Form Section */
+        .calc-wrapper {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 28px;
+            padding: 45px 35px;
+            max-width: 650px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.4);
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            font-size: 1rem;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-neon);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+        }
+
+        .calc-btn {
+            width: 100%;
+            background: var(--vibrant-glow);
+            color: #fff;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px -5px rgba(59, 130, 246, 0.4);
+            margin-top: 10px;
+        }
+
+        .calc-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -5px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.9);
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 80px;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1.05rem; }
+            header { flex-direction: column; gap: 15px; }
+            nav a { margin: 0 10px; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .calc-wrapper { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Macro Fuel <span>⚡️</span></div>
+        <nav>
+            <a href="#plans">الباقات</a>
+            <a href="#subscribe">طلب اشتراك</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge">🌿 وجبات طازجة 100% في تبوك</div>
+        <h1>Eat Clean. Stay Lean.</h1>
+        <p>وجبات صحية طازجة يومياً، محسوبة الماكروز والسعرات الحرارية بالجرام لدعم أهدافك الرياضية والصحية.</p>
+        <a href="#subscribe" class="btn-main">
+            اشترك الآن أونلاين 📩
+        </a>
+    </section>
+
+    <section class="container" id="plans">
+        <h2 class="section-title">باقات الاشتراك الشهرية</h2>
+        <p class="section-subtitle">شاملة التوصيل اليومي المجاني لجميع أحياء تبوك</p>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="plan-title">الباقة المتوازنة</div>
+                <div class="price">849 <span>رس / شهرياً</span></div>
+                <ul class="features-list">
+                    <li>2 وجبة رئيسية يومياً</li>
+                    <li>1 سناك / حلا دايت</li>
+                    <li>24 يوم عمل (شهرياً)</li>
+                    <li>توصيل يومي طازج</li>
+                    <li>علب صديقة للبيئة آمنة للمايكرويف</li>
+                </ul>
+                <a href="#subscribe" class="btn-main" style="width: 100%;">اختيار الباقة</a>
+            </div>
+
+            <div class="price-card featured">
+                <div class="badge">الأكثر طلباً 🔥</div>
+                <div class="plan-title">باقة الوقود الكامل</div>
+                <div class="price">1,199 <span>رس / شهرياً</span></div>
+                <ul class="features-list">
+                    <li>3 وجبات رئيسية يومياً</li>
+                    <li>1 سناك / حلا دايت</li>
+                    <li>24 يوم عمل (شهرياً)</li>
+                    <li>حساب دقيق للماكروز بالجرام</li>
+                    <li>توصيل يومي مجاني بتبوك</li>
+                </ul>
+                <a href="#subscribe" class="btn-main" style="width: 100%;">اختيار الباقة</a>
+            </div>
+
+            <div class="price-card">
+                <div class="plan-title">التجربة الأسبوعية</div>
+                <div class="price">349 <span>رس / أسبوعياً</span></div>
+                <ul class="features-list">
+                    <li>3 وجبات رئيسية يومياً</li>
+                    <li>1 سناك / حلا دايت</li>
+                    <li>6 أيام عمل (أسبوعي)</li>
+                    <li>لتجربة الجودة والمذاق الفاخر</li>
+                    <li>توصيل يومي طازج</li>
+                </ul>
+                <a href="#subscribe" class="btn-main" style="width: 100%;">اختيار الباقة</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج الطلب الذي يرسل البيانات إلى الإيميل -->
+    <section class="container" id="subscribe">
+        <h2 class="section-title">نموذج طلب الاشتراك 📝</h2>
+        <p class="section-subtitle">أدخل بياناتك وسيتم التواصل معك مباشرة لتأكيد الاشتراك</p>
+
+        <div class="calc-wrapper">
+            <!-- غيّر كلمة YOUR_FORM_ID إلى المعرّف الخاص بك من حساب Formspree -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" name="الاسم" class="form-control" placeholder="مثال: محمد أحمد" required>
+                </div>
+
+                <div class="form-group">
+                    <label>رقم الجوال / الواتساب:</label>
+                    <input type="tel" name="الجوال" class="form-control" placeholder="05XXXXXXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label>اختر الباقة المناسبة:</label>
+                    <select name="الباقة المختارة" class="form-control" required>
+                        <option value="الباقة المتوازنة (849 رس)">الباقة المتوازنة - 849 رس/شهرياً</option>
+                        <option value="باقة الوقود الكامل (1199 رس)">باقة الوقود الكامل - 1,199 رس/شهرياً</option>
+                        <option value="التجربة الأسبوعية (349 رس)">التجربة الأسبوعية - 349 رس/أسبوعياً</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>الحي / العنوان بتبوك:</label>
+                    <input type="text" name="العنوان" class="form-control" placeholder="مثال: حي المروج، تبوك" required>
+                </div>
+
+                <div class="form-group">
+                    <label>الهدف الصحي / ملاحظات إضافية (اختياري):</label>
+                    <input type="text" name="الملاحظات" class="form-control" placeholder="تنشيف، تضخيم، حساسية من أطعمة معينة...">
+                </div>
+
+                <button type="submit" class="calc-btn">إرسال طلب الاشتراك ⚡️</button>
+
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © Macro Fuel 2026 ⚡️ | تبوك، المملكة العربية السعودية</p>
+    </footer>
+
+</body>
+</html>
