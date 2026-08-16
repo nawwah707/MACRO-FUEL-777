@@ -36,7 +36,6 @@
             min-height: 100vh;
         }
 
-        /* Header / Navbar */
         header {
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(16px);
@@ -81,7 +80,6 @@
             text-shadow: 0 0 12px rgba(52, 211, 153, 0.4);
         }
 
-        /* Hero Section */
         .hero {
             position: relative;
             text-align: center;
@@ -156,7 +154,6 @@
             box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.6);
         }
 
-        /* Container & Titles */
         .container {
             max-width: 1150px;
             margin: 0 auto;
@@ -178,7 +175,6 @@
             font-size: 1.1rem;
         }
 
-        /* Pricing Grid */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
@@ -276,7 +272,6 @@
             font-size: 0.8rem;
         }
 
-        /* Order Form Section */
         .calc-wrapper {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
@@ -339,7 +334,6 @@
             box-shadow: 0 12px 25px -5px rgba(59, 130, 246, 0.6);
         }
 
-        /* Footer */
         footer {
             background: rgba(15, 23, 42, 0.9);
             border-top: 1px solid var(--card-border);
@@ -350,7 +344,6 @@
             font-size: 0.95rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.3rem; }
             .hero p { font-size: 1.05rem; }
@@ -427,7 +420,6 @@
         </div>
     </section>
 
-    <!-- نموذج الطلب المرتبط بـ FormSubmit Cloud -->
     <section class="container" id="subscribe">
         <h2 class="section-title">نموذج طلب الاشتراك 📝</h2>
         <p class="section-subtitle">أدخل بياناتك وسيتم التواصل معك مباشرة لتأكيد الاشتراك</p>
@@ -435,19 +427,27 @@
         <div class="calc-wrapper">
             <form action="https://formsubmit.cloud/f/4c0229e9-13e7-4e14-b7af-a698b30fb061/" method="POST">
                 
+                <!-- توجيه المستخدم لموقعك بعد الإرسال -->
+                <input type="hidden" name="_next" value="https://nawwah707.github.io/MACRO-FUEL-777/">
+
                 <div class="form-group">
                     <label>الاسم الكامل:</label>
-                    <input type="text" name="الاسم" class="form-control" placeholder="مثال: محمد أحمد" required>
+                    <input type="text" name="name" class="form-control" placeholder="مثال: محمد أحمد" required>
+                </div>
+
+                <div class="form-group">
+                    <label>البريد الإلكتروني للتواصل:</label>
+                    <input type="email" name="email" class="form-control" value="zyadmosu406@gmail.com" placeholder="zyadmosu406@gmail.com" required>
                 </div>
 
                 <div class="form-group">
                     <label>رقم الجوال / الواتساب:</label>
-                    <input type="tel" name="الجوال" class="form-control" placeholder="05XXXXXXXX" required>
+                    <input type="tel" name="phone" class="form-control" placeholder="05XXXXXXXX" required>
                 </div>
 
                 <div class="form-group">
                     <label>اختر الباقة المناسبة:</label>
-                    <select name="الباقة المختارة" class="form-control" required>
+                    <select name="plan" class="form-control" required>
                         <option value="الباقة المتوازنة (849 رس)">الباقة المتوازنة - 849 رس/شهرياً</option>
                         <option value="باقة الوقود الكامل (1199 رس)">باقة الوقود الكامل - 1,199 رس/شهرياً</option>
                         <option value="التجربة الأسبوعية (349 رس)">التجربة الأسبوعية - 349 رس/أسبوعياً</option>
@@ -455,13 +455,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label>الحي / العنوان بتبوك:</label>
-                    <input type="text" name="العنوان" class="form-control" placeholder="مثال: حي المروج، تبوك" required>
-                </div>
-
-                <div class="form-group">
-                    <label>الهدف الصحي / ملاحظات إضافية (اختياري):</label>
-                    <input type="text" name="الملاحظات" class="form-control" placeholder="تنشيف، تضخيم، حساسية من أطعمة معينة...">
+                    <label>العنوان والهدف الصحي (الملاحظات):</label>
+                    <textarea name="message" class="form-control" rows="3" placeholder="اكتب عنوانك بتبوك، وهدفك الصحي (تنشيف / تضخيم)..." required></textarea>
                 </div>
 
                 <button type="submit" class="calc-btn">إرسال طلب الاشتراك ⚡️</button>
